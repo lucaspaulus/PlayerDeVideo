@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="css/px-video.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <title>Learning English - Player  </title>
+</head>
+<body>
+
+
+
+    <div class="wrapper">
+        <input id='video-upload' type='file'>
+        <label for='video-upload'>Selecionar Video &#187;</label>    
+            <p id="urlText"></p>
+            <div class="px-video-container" id="myvid">
+                <div class="px-video-img-captions-container">
+                    <div class="px-video-captions hide" aria-hidden="true"></div>
+                        <div class="esconder-menu">
+                            <div class="px-video-controls"></div>
+                        </div>
+                            <div class="px-video-wrapper">
+                                <!--<video class="px-video" controls>
+                                <source src="" type="video/mp4"> -->
+                                <lablel>Subtitles: <input id="subtitles-input" type="file"></lablel>
+                                <video class="px-video" src="" controls></video>
+                                <track id="subtitles" kind="subtitles" label="English captions" srclang="en" default> 
+                                </video>
+                        </div>   
+    </div>
+                 
+                            <script src="js/strings.js"></script>
+                            <script src="js/px-video.js"></script>
+                        
+                    <script>
+
+                         
+
+                            // Initialize
+                            new InitPxVideo({
+                                    videoId: "myvid",
+                                    
+                                    seekInterval: 20,
+                                    videoTitle: "english class",
+                                    
+                                }); 
+                            
+                                
+                            // upload de video
+                        
+                         $("#video-upload").change(function(){
+                        var files = $("#video-upload").prop("files");
+                          
+                        
+                        
+
+
+                            if ( files[0] ) {
+                            $(".px-video").attr("src", URL.createObjectURL(files[0]));
+                                $("#urlText").text("URL ("+ files[0].name + ")");
+                               
+                            }
+                            
+                        });    
+                     
+                        
+                       
+
+                              
+                        
+
+                            
+                        
+                                  
+                                
+                                </script>
+   
+</body>
+</html>
